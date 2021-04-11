@@ -10,7 +10,7 @@
           rel="noopener noreferrer"
           class="button--green"
         >
-          Documentation
+          <a-button>Documentation</a-button>
         </a>
         <a
           href="https://github.com/nuxt/nuxt.js"
@@ -18,7 +18,7 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub
+          <a-button>GitHub</a-button>
         </a>
       </div>
     </div>
@@ -32,7 +32,6 @@ export default {}
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
