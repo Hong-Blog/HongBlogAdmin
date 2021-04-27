@@ -40,7 +40,32 @@
       </a-menu>
     </a-layout-sider>
     <a-layout :style="{ marginLeft: '200px' }">
-      <a-layout-header :style="{ background: '#fff', padding: 0 }" />
+      <a-layout-header
+        :style="{
+          background: '#fff',
+          padding: 0,
+          textAlign: 'right',
+          paddingRight: '20px',
+        }"
+      >
+        <a-dropdown :trigger="['click']">
+          <a class="ant-dropdown-link" @click="(e) => e.preventDefault()">
+            <!-- {{ $store.getters['login/id'] }} -->
+            {{ getId }}
+            <a-icon type="down" />
+          </a>
+          <a-menu slot="overlay">
+            <a-menu-item key="0">
+              <a href="http://www.alipay.com/">1st menu item</a>
+            </a-menu-item>
+            <a-menu-item key="1">
+              <a href="http://www.taobao.com/">2nd menu item</a>
+            </a-menu-item>
+            <a-menu-divider />
+            <a-menu-item key="3"> 3rd menu item </a-menu-item>
+          </a-menu>
+        </a-dropdown>
+      </a-layout-header>
       <a-layout-content
         :style="{
           margin: '24px 16px',
@@ -59,7 +84,13 @@
 </template>
 
 <script>
-export default {}
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters('login', ['getId']),
+  },
+}
 </script>
 
 <style>

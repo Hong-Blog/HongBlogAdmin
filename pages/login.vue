@@ -81,8 +81,8 @@ export default {
           password: this.formInline.password,
         })
         .then((res) => {
-          console.log(res)
           this.$message.success('登录成功')
+          this.$store.commit('login/setLoginedInfo', res.data)
           this.$router.push('/')
         })
         .catch((e) => {
